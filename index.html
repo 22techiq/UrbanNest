@@ -1,0 +1,347 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UrbanNest Rentals | Find Your Perfect Home</title>
+  <meta name="description" content="UrbanNest Rentals helps you find affordable houses, bedsitters, apartments, and commercial spaces with ease." />  <!-- Google Font -->  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">  <!-- Font Awesome -->  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">  <style>
+    :root {
+      --primary: #2c3e50;
+      --accent: #f39c12;
+      --light: #f4f6f8;
+      --dark: #1a1a1a;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: var(--light);
+      color: var(--dark);
+    }
+
+    /* Header */
+    header {
+      background: white;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    nav {
+      display: flex;
+      gap: 25px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.6rem;
+      cursor: pointer;
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(rgba(44,62,80,0.8), rgba(44,62,80,0.8)), url('https://images.unsplash.com/photo-1560185008-5b8b4f9e2f58');
+      background-size: cover;
+      background-position: center;
+      height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      padding: 20px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      max-width: 600px;
+      margin: auto;
+      margin-bottom: 25px;
+      opacity: 0.9;
+    }
+
+    .search-box {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .search-box input,
+    .search-box select {
+      flex: 1;
+      padding: 12px;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+    }
+
+    .search-box button {
+      background: var(--accent);
+      border: none;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    /* Listings */
+    section {
+      padding: 60px 40px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-title h2 {
+      font-size: 2.2rem;
+      color: var(--primary);
+    }
+
+    .listings {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 18px;
+    }
+
+    .card-content h3 {
+      margin-bottom: 8px;
+      color: var(--primary);
+    }
+
+    .price {
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    /* Features */
+    .features {
+      background: white;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+      text-align: center;
+    }
+
+    .feature i {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 15px;
+    }
+
+    /* Contact */
+    .contact {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .contact form {
+      display: grid;
+      gap: 15px;
+    }
+
+    .contact input,
+    .contact textarea {
+      padding: 12px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    .contact button {
+      background: var(--primary);
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--primary);
+      color: white;
+      padding: 30px 40px;
+      text-align: center;
+    }
+
+    footer i {
+      margin: 0 8px;
+      cursor: pointer;
+    }
+
+    /* Mobile */
+    @media(max-width: 768px) {
+      nav {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        width: 220px;
+        padding: 20px;
+        display: none;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style></head>
+<body><header>
+  <div class="logo">UrbanNest</div>
+  <i class="fas fa-bars menu-toggle" onclick="toggleMenu()"></i>
+  <nav id="nav">
+    <a href="#">Home</a>
+    <a href="#listings">Listings</a>
+    <a href="#features">Why Us</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header><section class="hero">
+  <div>
+    <h1>Find Your Next Rental Home</h1>
+    <p>Browse verified rentals — bedsitters, apartments, shops & offices — all in one place.</p><div class="search-box">
+  <input type="text" placeholder="Location">
+  <select>
+    <option>Property Type</option>
+    <option>Bedsitter</option>
+    <option>Apartment</option>
+    <option>Shop</option>
+  </select>
+  <button><i class="fas fa-search"></i> Search</button>
+</div>
+
+  </div>
+</section><section id="listings">
+  <div class="section-title">
+    <h2>Featured Listings</h2>
+  </div>  <div class="listings">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688">
+      <div class="card-content">
+        <h3>Modern Apartment</h3>
+        <p class="price">KES 18,000 / month</p>
+        <p>2 Bedroom apartment near town.</p>
+      </div>
+    </div><div class="card">
+  <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267">
+  <div class="card-content">
+    <h3>Bedsitter</h3>
+    <p class="price">KES 6,500 / month</p>
+    <p>Affordable bedsitter with water & power.</p>
+  </div>
+</div>
+
+<div class="card">
+  <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb">
+  <div class="card-content">
+    <h3>Commercial Shop</h3>
+    <p class="price">KES 25,000 / month</p>
+    <p>Spacious shop along busy road.</p>
+  </div>
+</div>
+
+  </div>
+</section><section id="features" class="features">
+  <div class="feature">
+    <i class="fas fa-shield-alt"></i>
+    <h3>Verified Listings</h3>
+    <p>No scams. Only trusted rentals.</p>
+  </div>  <div class="feature">
+    <i class="fas fa-map-marker-alt"></i>
+    <h3>Prime Locations</h3>
+    <p>Find rentals near you.</p>
+  </div>  <div class="feature">
+    <i class="fas fa-headset"></i>
+    <h3>24/7 Support</h3>
+    <p>We are here to help.</p>
+  </div>
+</section><section id="contact">
+  <div class="section-title">
+    <h2>Contact Us</h2>
+  </div>  <div class="contact">
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Email Address" required>
+      <textarea rows="4" placeholder="Message"></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+</section><footer>
+  <p>&copy; 2025 UrbanNest Rentals. All Rights Reserved.</p>
+  <div>
+    <i class="fab fa-facebook"></i>
+    <i class="fab fa-instagram"></i>
+    <i class="fab fa-whatsapp"></i>
+  </div>
+</footer><script>
+  function toggleMenu() {
+    document.getElementById('nav').classList.toggle('active');
+  }
+</script></body>
+</html>
